@@ -14,7 +14,7 @@ for(var i=0; i<argument.length; i++){
         count = count + 1;  
     }
     else{
-        count = count + 1;
+        
     }
 }
 
