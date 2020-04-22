@@ -1,16 +1,27 @@
 var args = process.argv.slice(2);
 
-getDataFile('c1.txt');
+var data = new Array();
+
+for(let i=0; i<2; i++){
+    data[i] = getDataFile(args[i]);
+}
+
+console.log(data);
+
+
+
+
+
+
 
 
 
 function getDataFile(filename){
-
-    var fs = require('fs');
-    var data = fs.readFileSync(filename, 'utf8');
+    let fs = require('fs');
+    let data = fs.readFileSync(filename, 'utf8');
 
     data = dataInArray(data);
-    console.log(data);
+    return data;
 }
 
 
@@ -18,8 +29,8 @@ function getDataFile(filename){
 
 function dataInArray(data){
 
-    var count = 0;
-    var datas = new Array();
+    let count = 0;
+    let datas = new Array();
     while(count == 0){
         for(let i = 0; count == 0; i++){
             if(typeof(data[i]) === 'undefined'){
