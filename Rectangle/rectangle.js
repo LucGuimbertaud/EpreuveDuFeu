@@ -1,25 +1,19 @@
-// var args = process.argv.slice(2);
+var args = process.argv.slice(2);
 
-
-
-
-
-console.log(getDataFile("c2.txt"));
-
+getDataFile('c1.txt');
 
 
 
 function getDataFile(filename){
 
-     var fs = require('fs');
-     fs.readFile(filename, 'utf8', function(err, data) {
-        if (err) throw err;
-        // console.log('OK: ' + filename);
-        // console.log(data);
-        datas = dataInArray(data);
-        console.log(datas);
-    });
+    var fs = require('fs');
+    var data = fs.readFileSync(filename, 'utf8');
+
+    data = dataInArray(data);
+    console.log(data);
 }
+
+
 
 
 function dataInArray(data){
@@ -30,15 +24,26 @@ function dataInArray(data){
         for(let i = 0; count == 0; i++){
             if(typeof(data[i]) === 'undefined'){
                 count = 1;
-                // console.log(typeof(data[i]));
-                // console.log('fini');
             }
             else{  
                 datas[i]=data[i];
-                //console.log(datas[i]);
-                //console.log('ok');
             }
         }
     }
+    datas = removeItemAll(datas, '\n');
     return datas;
+}
+
+
+
+function removeItemAll(arr, value) {
+    var i = 0;
+    while (i < arr.length) {
+        if(arr[i] === value) {
+            arr.splice(i, 1);
+        } else {
+            ++i;
+        }
+    }
+    return arr;
 }
