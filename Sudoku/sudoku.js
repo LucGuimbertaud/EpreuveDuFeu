@@ -16,11 +16,20 @@ function getSudokuGrid(sudoku_path){
 function sudokuInArray(sudoku){
     var sudoku_array=[
         [],
-        [],
     ];
+
+    // sudoku_array[0][0]=1;
+    // sudoku_array[0][1]=4;
+    // sudoku_array[0][2]=2;
+    // sudoku_array[1][0]=1;
+    // sudoku_array[1][1]=8;
+    // sudoku_array[1][2]=7;
+
+
+    // console.log(sudoku_array);
     
     let row = 0;
-    let col =0;
+    let col =0 ;
     
     //console.log(sudoku_array[1][1]);
     
@@ -28,18 +37,18 @@ function sudokuInArray(sudoku){
         if(sudoku[i]==='undefined'){
             break;
         }
-        else if(sudoku[i] === '\n'){   
-            row = row + 1
+        else if(sudoku[i] === '\n'){  
+            sudoku_array.push([]); 
+            row = row + 1;
             col = 0;    
         }
         else{
-            sudoku_array[col][row] = sudoku_array.push(sudoku[i]);
+            //console.log(typeof(sudoku[i]));
+            sudoku_array[row][col]=sudoku[i];
             col = col + 1;
     
             //console.log(sudoku_array);
         }
-    
-    
     }
     console.log(sudoku_array);
 }
