@@ -6,4 +6,4 @@ for(let i = 1; i<number; i++){
     result = result+(result*i);
 }
 
-console.log(result);
+console.log(result.toLocaleString('fullwide', {useGrouping:false}));
