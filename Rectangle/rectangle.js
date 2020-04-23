@@ -9,13 +9,6 @@ for(let i=0; i<2; i++){
 console.log(data);
 
 
-
-
-
-
-
-
-
 function getDataFile(filename){
     let fs = require('fs');
     let data = fs.readFileSync(filename, 'utf8');
